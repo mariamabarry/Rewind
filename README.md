@@ -1,2 +1,1 @@
-# JsSiteTemplate
-JS site template for mini-site projects
+# reverse: A mini-site project
