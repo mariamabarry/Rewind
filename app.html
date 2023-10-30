@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100">
   <head>
-    <title>App Name: A Coding Project by Mariama Barry</title>
+    <title>Rewind: A Coding Project by Mariama Barry</title>
     <link rel="icon" type="image/png" href="/img/logo/Favicons/Android.png" >
     <!-- Required meta tags -->
     <meta charset="utf-8" />
@@ -26,8 +26,8 @@
         <!-- ===== NAV SECTION ===== -->
         <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="/img/logo/Favicons/no-bg/Android-removebg-preview.png" class="d-inline-block" width="40" height="40">
-            APP NAME</a>
+            <a class="navbar-brand lot-font" href="index.html"><img src="/img/logo/Favicons/no-bg/Android-removebg-preview.png" class="d-inline-block" width="40" height="40">
+            Rewind</a>
             <button
             class="navbar-toggler"
             type="button"
@@ -63,7 +63,41 @@
         <!-- ===== MAIN SECTION ===== -->
         <main class="flex-shrink-0">
             <div class="container">
-                
+                <div class="row row-cols-1 row-cols-lg-2 mt-5">
+                    <div class="col-lg-4">
+                        <div class="row border-none border-end border-2">
+                            <div class="col-12">
+                                <h1>Rewind</h1> 
+                                <p>
+                                    Rewind is an innovative text transformation tool that takes any user-entered string and outputs it in reverse, 
+                                    offering a fun and unique way to play with words and language.
+                                </p>
+                            </div>
+                            <div class="col">
+                                <h2>Instructions</h2>
+                                <p>Enter a string and press the button to display it in reverse!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="row">
+                            <div class="col-12">
+                                <h5>Enter a word, sentence or phrase:</h5>
+                                <form class="row gy-2 gx-3" onsubmit="return false">
+                                    <!-- <label class="form-label" for="strInput">Enter a word, sentence or phrase:</label><br> -->
+                                    <textarea type="text" class="form-control" id="inputStr" name="inputStr" rows="2" placeholder="The quick brown fox jumps over the lazy dog."></textarea>
+                                    <button type="submit" id="btnSubmit" class="btn btn-outline-dark">Reverse!</button>
+                                </form>
+                            </div>
+                            <div class="col">
+                                <hr>
+                                <label class="form-label" for="outputStr">Results:</label><br>
+                                <textarea type="text" class="form-control" id="outputStr" name="outputStr" rows="2"></textarea>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
         <!-- ===== FOOTER SECTION ===== -->
@@ -102,6 +136,9 @@
             integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ">
         </script>
         <script src="js/site.js"></script>
-        
+        <script>
+
+            document.getElementById("btnSubmit").addEventListener("click", getInput);
+        </script>
     </body>
 </html>

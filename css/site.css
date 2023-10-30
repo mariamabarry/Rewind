@@ -1,3 +1,12 @@
+@font-face {
+  font-family: Lot;
+  src: url('fonts/LOT/Lot-Regular.eot');
+  src: url('fonts/LOT/Lot-Regular.eot?#iefix') format('embedded-opentype'),
+  url('fonts/LOT/Lot-Regular.woff2') format('woff2'),
+  url('fonts/LOT/Lot-Regular.woff') format('woff'),
+  url('fonts/LOT/Lot-Regular.ttf') format('truetype');
+  }
+
 :root {
   --primary-color: #083068;
   --secondary-color: #00cccc;
@@ -11,6 +20,7 @@
   }
 body {
   color: var(--dark-color);
+  font-size: 100%
 }
 
 nav {
@@ -55,6 +65,7 @@ h5,
 h6 {
   color: var(--primary-color);
 }
+
 .resize-svg{
   height: 50px;
 }
@@ -62,6 +73,13 @@ h6 {
 .nav{
   z-index: 1;
   top:0;
+}
+h1{
+  font-family: Lot;
+  font-size: 6vw;
+}
+.lot-font{
+  font-family: Lot;
 }
 code[class*="language-"],
   pre[class*="language-"] {
