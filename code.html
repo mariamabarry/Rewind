@@ -44,20 +44,20 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="app.html">The App</a>
+                        <a class="nav-link" href="app.html">The App</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link active" aria-current="page">The Code</a>
+                        <a class="nav-link active" aria-current="page">The Code</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="#">Git Repo</a>
+                        <a class="nav-link" target="_blank" href="https://github.com/mariamabarry/Rewind">Git Repo</a>
                     </li>
-                    <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="#">About</a>
-                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" target="_blank" href="#">About</a>
+                    </li> -->
                 </ul>
                 </div>
             </div>
@@ -65,19 +65,103 @@
         <!-- ===== MAIN SECTION ===== -->
         <main class="flex-shrink-0">
             <div class="container py-5 px-4 mt-5">
-                <h2 class="border-1 border-bottom border-dark">The Code for APP NAME</h2>
+                <h2 class="border-1 border-bottom border-dark">The Code for Rewind</h2>
                 <div class="row row-cols-1 row-cols-lg-2">
                     <div class="col-lg-8">
                         <pre class="line-numbers">
                             <code class="language-javascript">
-                                <!-- Place code here -->
+                                /*CONTROLLER FUNCTION */
+                                //get the values from the Page
+                                function getInput()
+                                {
+                                    document.getElementById("alert").classList.add("invisible");
+
+                                    //get user input
+                                    let inputStr = document.getElementById("inputStr").value;
+                                    
+                                    //Validate input 
+                                    if(!inputStr)
+                                    {
+                                    //display results
+                                    displayString("", false);
+                                    }
+                                    else
+                                    {
+                                    //reverse user input
+                                    let outputStr = reverseString(inputStr);
+                                    //display results
+                                    displayString(outputStr);
+                                    }
+                                }
+
+                                /*LOGIC FUNCTIONS*/
+                                //reverse input string
+                                function reverseString (str) 
+                                {
+                                    return str.split('').reduce((reversed, character) => character + reversed, '')
+                                }
+
+                                /* DISPLAY OR VIEW FUNCTIONS*/
+                                //display the reversed string
+                                function displayString(revStr, isReversible = true)
+                                {
+                                    //clear styling on alert box
+                                    document.getElementById("alert").classList.remove("alert-success", "alert-danger", "alert-warning", "alert-info");
+
+                                    if(isReversible)
+                                    {
+                                        //write to page
+                                        document.getElementById("alertHeading").innerHTML = `Success!`;
+                                        document.getElementById("msg").innerHTML = `<strong>Your string reversed is:</strong><lead>${revStr}</lead>`;
+                                        //style alert box
+                                        document.getElementById("alert").classList.add("alert-success");
+                                    }
+                                    else
+                                    {
+                                        //write to page
+                                        document.getElementById("alertHeading").innerHTML = `Error`;
+                                        document.getElementById("msg").innerHTML = `Nothing to reverse! Please enter a string.`;
+                                        //style alert box
+                                        document.getElementById("alert").classList.add("alert-danger");
+                                    }
+                                    
+                                    //show the alert box
+                                    document.getElementById("alert").classList.remove("invisible");
+                                    document.getElementById("alert").classList.add("show");
+                                }
+
                             </code>
                         </pre>
                     </div>
                     <div class="col-lg-4">
-                        <p>The code is structed in one functions.</p>
-                        <h5>Hello World</h5>
-                        <p>Hello World is a function that displays an alert with a message.</p>
+                        <p>The code is structured with 3 functions.</p>
+                        <h5>getInput()</h5>
+                        <p>This function is responsible for controlling the flow of user interaction with the page. 
+                            <ul>
+                               <li>It sets the visibility of the alert element with the ID "alert" to invisible. </li>
+                               <li>It then collects user input from an element with the ID "inputStr".</li>
+                               <li>The user input is validated by checking if it is empty, in which it calls the <strong>displayString()</strong> function with the boolean <strong>IsReversible</strong> parameter set to false, indicating that there's nothing to reverse.</li>
+                               <li>If there is valid input, the function reverses the string using the <strong>reverseString()</strong> function and displays the reversed result through the <strong>displayString()</strong> function.</li>
+                            </ul>
+                        </p>
+                        <h5>reverseString(str)</h5>
+                        <p>This function is responsible for reversing the input string. 
+                            <ul>
+                                <li>It uses the <strong>split</strong> method to turn the input string <strong>str</strong> into an array of characters, and then it uses the <strong>reduce</strong> method to reverse the order of these characters.</li>
+                                <li>This is achieved by concatenating each character to the beginning of the reversed string.</li>
+                                <li>The function returns the reversed string.</li>
+                            </ul>
+                        </p>
+                        <h5>displayString(revStr, isReversible = true)</h5>
+                        <p>
+                            This function handles the display of results and alert messages.
+                                <ul>
+                                    <li>It starts by clearing any styling on the alert box by removing classes like <strong>alert-success, alert-danger, alert-warning, and alert-info.</strong></li>
+                                    <li>If the <strong>isReversible</strong> flag is true (by default), it displays a success message. It sets the alert box heading to "Success!" and displays the reversed string in the alert message area. It also styles the alert box as a success alert.</li>
+                                    <li>If the <strong>isReversible</strong> flag is false, it displays an error message. It sets the alert box heading to "Error" and provides an error message indicating that there's "Nothing to reverse!" It styles the alert box as an error with the <strong>alert-danger</strong> style.</li>
+                                    <li>It then makes the alert box visible by removing the "invisible" class and adding the "show" class.</li>
+                                </ul>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -104,11 +188,11 @@
                 </div>
                 <!-- SOCIAL LINKS -->
                 <div class="col d-flex align-items-lg-center justify-content-start justify-content-lg-end order-lg-last">
-                <div class="row">
-                    <div class="col social"><a href="#" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></div>
-                    <div class="col social"><a href="#" target="_blank"><i class="fab fa-github fa-2x"></i></a></div>
-                    <div class="col social"><a href="#" target="_blank"><i class="fab fa-twitter fa-2x"></i></a></div>
-                </div>
+                    <div class="row">
+                        <div class="col social"><a href="https://www.linkedin.com/in/mariamahbarry" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></div>
+                        <div class="col social"><a href="https://github.com/mariamabarry" target="_blank"><i class="fab fa-github fa-2x"></i></a></div>
+                        <!-- <div class="col social"><a href="#" target="_blank"><i class="fab fa-twitter fa-2x"></i></a></div> -->
+                    </div>
                 </div>
             </div>
             </div>

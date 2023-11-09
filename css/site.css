@@ -5,11 +5,11 @@
   url('fonts/LOT/Lot-Regular.woff2') format('woff2'),
   url('fonts/LOT/Lot-Regular.woff') format('woff'),
   url('fonts/LOT/Lot-Regular.ttf') format('truetype');
-  }
+}
 
 :root {
   --primary-color: #083068;
-  --secondary-color: #00cccc;
+  --secondary-color: #00cccc; 
   --dark-color: #222831;
   --white-color: #fafafa;
 }
@@ -17,7 +17,25 @@
   .responsiveicon {
   margin: 0;
   }
+}
+.responsiveEndBorder{
+  border-inline-end: solid; 
+}
+@media screen and (max-width: 991px) { 
+  .responsiveEndBorder {       
+      border-inline-end: 0 !important;
   }
+}
+.responsiveBottomBorder{
+  border-bottom: solid; 
+}
+@media (min-width: 992px) { 
+  .responsiveBottomBorder {       
+      border-bottom: 0 !important;
+      
+  }
+}
+
 body {
   color: var(--dark-color);
   font-size: 100%
@@ -54,7 +72,7 @@ footer .social>a:hover{
 }
 
 .checklist >li i{
-  color: var(--secondary-color);
+  color: #BB2525;
 }
 
 h1,
@@ -63,9 +81,18 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--primary-color);
+  color: #BB2525;
 }
 
+.custom-btn{
+  background-color: #BB2525;
+  color: #FFF5E0;
+}
+.custom-btn:hover{
+  background-color: #B89E7D;
+  color: #FFF5E0;
+  transition: 0.5s;
+}
 .resize-svg{
   height: 50px;
 }
@@ -76,11 +103,12 @@ h6 {
 }
 h1{
   font-family: Lot;
-  font-size: 6vw;
+  /* font-size: 6vh; */
 }
 .lot-font{
   font-family: Lot;
 }
+
 code[class*="language-"],
   pre[class*="language-"] {
       white-space: pre-wrap;
@@ -97,3 +125,4 @@ main > .container {
   bottom: 0;
   width: 100%;
 }
+
